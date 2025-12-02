@@ -31,6 +31,23 @@ body {
   padding: 0;
 }
 
+/* --- 间距调整: 作者/机构/链接 --- */
+/* 1. 调整作者行与机构行之间的间距 */
+.publication-authors:first-child {
+    margin-bottom: 1rem;
+}
+
+/* 2. 调整机构行与下方链接块之间的间距 */
+.publication-authors:nth-child(2) {
+    margin-bottom: 2rem;
+}
+
+/* 3. 调整每个链接按钮块之间的水平和垂直间距 */
+.publication-links .link-block {
+    margin-right: 1.5rem; 
+    margin-bottom: 1rem;
+}
+
 .publication-banner video {
   position: relative;
   left: auto;
