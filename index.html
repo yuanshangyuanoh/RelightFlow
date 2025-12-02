@@ -1,0 +1,328 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <!-- 定义网页字符编码 -->
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="Relight-Flow is a training-free video relighting framework built upon flow-matching video generative models, enabling high-fidelity and temporally stable video illumination editing without inversion or additional training.">
+  <meta property="og:title" content="RelightFlow: An Inversion-Free Video Relighting Model via  Dual-Trajectory Diffusion Editing"/>
+  <meta property="og:description" content="Relight-Flow is a training-free video relighting framework built upon flow-matching video generative models, enabling high-fidelity and temporally stable video illumination editing without inversion or additional training."/>
+  <meta property="og:url" content="https://RelightFlow.github.io/"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/images/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="RelightFlow: An Inversion-Free Video Relighting Model via  Dual-Trajectory Diffusion Editing">
+  <meta name="twitter:description" content="Relight-Flow is a training-free video relighting framework built upon flow-matching video generative models, enabling high-fidelity and temporally stable video illumination editing without inversion or additional training.">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="Video Editing, Diffusion Model">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+
+  <title>RelightFlow: An Inversion-Free Video Relighting Model via  Dual-Trajectory Diffusion Editing</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <link rel="stylesheet" href="static/css/glide.core.min.css">
+  <link rel="stylesheet" href="static/css/glide.theme.min.css">
+  <link rel="stylesheet" href="static/css/glide-custom.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+	    tex2jax: {
+	        inlineMath: [['$','$'], ['\\(','\\)']],
+	        processEscapes: true
+	    }
+	});
+    </script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- 网页的主标题 -->
+            <h1 class="title is-1 publication-title">RelightFlow: An Inversion-Free Video Relighting Model via  Dual-Trajectory Diffusion Editing</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- 论文作者 -->
+              <span class="author-block"><a href="https://scholar.google.co.uk/citations?user=_IKVeo4AAAAJ&hl=en" target="_blank">Yukun Wang</a><sup>1</sup></span>
+              <span class="author-block"><a href="https://scholar.google.co.uk/citations?user=gbBAujsAAAAJ&hl=en" target="_blank">Qiyuan Zhang</a><sup>1</sup></span>
+              <span class="author-block"><a href="https://scholar.google.com/citations?user=WQRNvdsAAAAJ&hl=en" target="_blank">Qi Zhang</a><sup>1</sup></span>
+            </div>
+            
+            <div class="is-size-5 publication-authors">
+              <!-- 机构 -->
+              <span class="author-block"><sup>1</sup>Sun Yat-sen University</span>
+              <!--<span class="eql-cntrb"><small><br> <sup>*</sup>Corresponding author</small></span>-->
+              <!--<span class="author-block"></span><br><b>CVPR 2024 (Highlight)</b></span>-->
+              <!--<span class="eql-cntrb"><small><br> <sup>*</sup>Joint co-author</small></span>-->
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                    <!-- Arxiv PDF link -->
+                <span class="link-block">
+                  <a href="_black" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Arxiv (Coming soon)</span>
+                </a>
+              </span>
+
+            <!-- Github link -->
+            <span class="link-block">
+              <a href="https://github.com/Yukun66/RelightFlow" target="_blank"
+              class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <span>Code</span>
+            </a>
+          </span>
+
+
+          <!-- Huggingface link -->
+          <span class="link-block">
+            <a href="_blank" target="_blank"
+            class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+              🤗
+            </span>
+            <span>Demo (Coming soon)</span>
+            </a>
+          </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Featured Video Editing Results</h2>
+      <p class="subtitle is-12 has-text-centered has-text-grey">
+        Interactive before-and-after comparisons showcasing our editing capabilities. Drag the divider to explore.
+      </p>
+      <div id="diff-carousel" class="carousel results-carousel">
+        <!-- 视频对比项 -->
+        <div id="slider6bdb70e2-bb06-4f6a-ae18-d5dc025f9190" class="slider" tabindex="0">
+          <div class="slider-container" style="opacity: 1; width: 67200px; transition: none; transform: translate3d(-1920px, 0px, 0px);">
+            
+            <!-- Beach Walk 对比 -->
+            <div class="slider-item" data-slider-index="0" data-cloned="true" style="width: 960px;">
+              <div class="item">
+                <div class="video-diff-container">
+                  <div class="video-diff-wrapper" data-id="relighted_beach_walk">
+                    <div class="video-left">
+                      <video autoplay controls muted loop>
+                        <source src="static/teaser/beach_walk.mp4" type="video/mp4">
+                      </video>
+                      <div class="video-label">Original</div>
+                    </div>
+                    <div class="video-right">
+                      <video autoplay controls muted loop>
+                        <source src="static/teaser/beach_walk_re.mp4" type="video/mp4">
+                      </video>
+                      <div class="video-label">Relighted</div>
+                    </div>
+                    <div class="divider">
+                      <div class="divider-handle"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hike Path 对比 -->
+            <div class="slider-item" data-slider-index="1" data-cloned="true" style="width: 960px;">
+              <div class="item">
+                <div class="video-diff-container">
+                  <div class="video-diff-wrapper" data-id="relighted_hike_path">
+                    <div class="video-left" style="clip-path: inset(0px 100% 0px 0px);">
+                      <video autoplay controls muted loop>
+                        <source src="static/teaser/hike_path.mp4" type="video/mp4">
+                      </video>
+                      <div class="video-label">Original</div>
+                    </div>
+                    <div class="video-right">
+                      <video autoplay controls muted loop>
+                        <source src="static/teaser/hike_path_re.mp4" type="video/mp4">
+                      </video>
+                      <div class="video-label">Relighted</div>
+                    </div>
+                    <div class="divider" style="left: 0%;">
+                      <div class="divider-handle"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Boat 对比 -->
+            <div class="slider-item is-slide-next" data-slider-index="2" style="width: 960px;">
+              <div class="item">
+                <div class="video-diff-container">
+                  <div class="video-diff-wrapper" data-id="relighed_boat">
+                    <div class="video-left" style="clip-path: inset(0px 0% 0px 0px);">
+                      <video autoplay controls muted loop>
+                        <source src="static/teaser/boat.mp4" type="video/mp4">
+                      </video>
+                      <div class="video-label">Original</div>
+                    </div>
+                    <div class="video-right">
+                      <video autoplay controls muted loop>
+                        <source src="static/teaser/boat_re.mp4" type="video/mp4">
+                      </video>
+                      <div class="video-label">Relighted</div>
+                    </div>
+                    <div class="divider" style="left: 100%;">
+                      <div class="divider-handle"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Burnout 对比 -->
+            <div class="slider-item" data-slider-index="3" style="width: 960px;">
+              <div class="item">
+                <div class="video-diff-container">
+                  <div class="video-diff-wrapper" data-id="relighted_burn_out">
+                    <div class="video-left" style="clip-path: inset(0px 92.4542% 0px 0px);">
+                      <video autoplay controls muted loop>
+                        <source src="static/teaser/burnout.mp4" type="video/mp4">
+                      </video>
+                      <div class="video-label">Original</div>
+                    </div>
+                    <div class="video-right">
+                      <video autoplay controls muted loop>
+                        <source src="static/teaser/burnout_re.mp4" type="video/mp4">
+                      </video>
+                      <div class="video-label">Relighted</div>
+                    </div>
+                    <div class="divider" style="left: 7.54579%;">
+                      <div class="divider-handle"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 左右箭头导航 -->
+          <div class="slider-navigation-previous">
+            <svg viewBox="0 0 50 80" xml:space="preserve">
+              <polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375 "></polyline>
+            </svg>
+          </div>
+          <div class="slider-navigation-next">
+            <svg viewBox="0 0 50 80" xml:space="preserve">
+              <polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 "></polyline>
+            </svg>
+          </div>
+
+          <!-- 分页导航 -->
+          <div class="slider-pagination">
+            <div class="slider-page is-active" data-index="0"></div>
+            <div class="slider-page" data-index="1"></div>
+            <div class="slider-page" data-index="2"></div>
+            <div class="slider-page" data-index="3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths" style="width: 100%;">
+        <h2 class="title is-3 hr-lines">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Video relighting is a fundamental task with wideranging applications in contemporary visual computing, 
+            including film production, immersive virtual reality, augmented reality, and interactive digital worlds. 
+            Its objective is to generate temporally stable lighting effects while preserving the structural integrity, visual appearance, and intrinsic physical properties of objects in the source video. 
+            Recent studies combined image relighting models with video diffusion models, achieving notable progress in training-free video relighting. 
+            However, these methods rely on mapping noisy latents back to the pixel space during the relighting process, leading to degraded fidelity, consistency, and stability. 
+            In this work, we propose RelightFlow, a training-free video relighting framework built upon a flow-matching-based video DiT model, 
+            which requires neither inversion nor additional training, obtaining more feasible and robust relighting effects. 
+            Specifically, we first design a detail-preserving relighting module coupled with an interpolation trajectory, 
+            which injects stable lighting cues in the early generation stages while maintaining fine spatial details. 
+            Next, we develop a temporally consistent relighting module to form a flow-editing trajectory, leveraging the velocity fields predicted by the video DiT model to enhance temporal coherence. 
+            Finally, we introduce a dynamic fusion strategy that adaptively integrates these two trajectories to balance relighting intensity and temporal stability. 
+            Extensive experiments demonstrate that RelightFlow achieves high-quality video relighting with stable relighting intensity, superior fidelity, and temporal consistency.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Method -->
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Method</h2>
+        <!-- Method Figure -->
+        <div class="columns is-centered">
+          <div class="column is-full">
+            <img src="static\images\pipeline.jpg" alt="FlowDirector Method Overview" class="method-figure">
+            <p class="has-text-left is-size-6 mt-1">
+              RelightFlow is a training-free video relighting framework built upon a flowmatching video generation model. 
+              This framework is capable of producing temporally consistent, high-fidelity relighted videos without the need for additional training or optimization. 
+              First, we perform relighting directly in the noise-free latent space, avoiding noise inversion processes that often degrade content quality and introduce structural distortions. 
+              Second, we treat the diffusion model not merely as a denoising tool but as an effective editing mechanism, fully exploiting its ability to achieve consistent illumination adjustments. 
+              Third, we formulate relighting strategies within the latent variable space, 
+              which enhances the coherence of the relighting process and allows for efficient integration of contextual and semantic information, thereby reducing spatial distortions and framelevel blurring.
+            </p>
+          </div>
+        </div>
+        </div>
+      </div>
+  </div>
+</section>
+<!-- End Method -->
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+  </body>
+  </html>
